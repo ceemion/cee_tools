@@ -4,7 +4,8 @@
   "description": "All daily drivers in one place",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/ceemion/cee_tools/issues"
   },
-  "homepage": "https://github.com/ceemion/cee_tools#readme"
+  "homepage": "https://github.com/ceemion/cee_tools#readme",
+  "devDependencies": {
+    "electron": "^2.0.5"
+  },
+  "dependencies": {
+    "menubar": "^5.2.3"
+  }
 }
