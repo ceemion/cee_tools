@@ -8,7 +8,8 @@ const menubar = Menubar({
   width: 300,
   height: 400,
   showDockIcon: true,
-  tooltip: "Cee Tools"
+  tooltip: "Cee Tools",
+  backgroundColor: '#f7f7f7'
 })
 
 menubar.on('ready', function () {
