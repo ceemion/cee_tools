@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/ceemion/cee_tools#readme",
   "devDependencies": {
-    "electron": "^2.0.5"
+    "electron": "^2.0.5",
+    "electron-reload": "^1.2.5"
   },
   "dependencies": {
     "menubar": "^5.2.3"

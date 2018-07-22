@@ -1,4 +1,8 @@
 const electron = require('electron')
+const electronReload = require('electron-reload')
+
+electronReload(__dirname)
+
 const Menubar = require('menubar')
 const menubar = Menubar({
   width: 300,
@@ -12,6 +16,6 @@ menubar.on('ready', function () {
 })
 
 menubar.on('after-create-window', function () {
-  // menubar.window.loadURL(`file://${__dirname}/index.html`);
+  menubar.window.loadURL(`file://${__dirname}/app/index.html`);
   // menubar.window.openDevTools()
 });
