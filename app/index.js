@@ -35,6 +35,5 @@ cryptoCompare.addEventListener('click', function () {
   let win = new BrowserWindow(configs.frame('Crypto Compare', {x: 388}))
   configs.closeWindow(win)
   win.loadURL(configs.entryPath('crypto_compare/home.html'))
-  win.openDevTools()
   win.show()
 })
