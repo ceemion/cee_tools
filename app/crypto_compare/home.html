@@ -4,10 +4,22 @@
     <meta charset="utf-8" />
     <title>Home | Crypto Compare</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="crypto.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../../assets/styles/crypto.css" />
   </head>
   <body>
-    <div>Welcome to Crypto Compare</div>
+    <div class="row">
+      <div id="price-container">
+          <p class="subtext">Current BTC USD</p>
+          <h1 id="price">$9,503.21</h1>
+      </div>
+      <div id="goal-container">
+          <p><img src="../assets/images/up.svg"><span id="targetPrice">Choose a Target Price</span></p>
+      </div>
+      <div id="right-container">
+          <button id="notify-btn">Notify me when..</button>
+      </div>
+    </div>
+
+    <script src="crypto.js"></script>
   </body>
 </html>
