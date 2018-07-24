@@ -1,14 +1,16 @@
-const electron = require('electron')
-const remote = electron.remote
+const { ipcRenderer, remote } = require('electron')
 const BrowserWindow = remote.BrowserWindow
+const path = require('path')
 const axios = require('axios')
 
 const notifyBtn = document.getElementById('notify-btn')
-const closeBtn = document.getElementById('close-btn')
 const priceBtc = document.getElementById('price-btc')
 const priceEth = document.getElementById('price-eth')
 const priceBtcUsd = document.getElementById('price-btc-usd')
 const priceEthUsd = document.getElementById('price-eth-usd')
+const targetPrice = document.getElementById('target-price')
+
+let targetPriceVal;
 
 if (notifyBtn) {
   notifyBtn.addEventListener('click', function (event) {
@@ -22,15 +24,8 @@ if (notifyBtn) {
     })
 
     win.on('close', function () { win = null })
-    win.loadURL(`file://${__dirname}/add.html`)
+    win.loadURL(`file://${path.join(__dirname, '../add/add.html')}`)
     win.show()
-  })
-}
-
-if (closeBtn) {
-  closeBtn.addEventListener('click', function (event) {
-    var win = remote.getCurrentWindow()
-    win.close()
   })
 }
 
@@ -51,3 +46,8 @@ function getBTC() {
 
 getBTC();
 setInterval ( getBTC, 20000 );
+
+ipcRenderer.on('targetPriceVal', function (event, arg) {
+  targetPriceVal = Number(arg)
+  targetPrice.innerHTML = `NGN ${targetPriceVal.toLocaleString('en')}`
+})
