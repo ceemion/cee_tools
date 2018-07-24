@@ -1,7 +1,14 @@
-body {
+#crypto-wrapper {
   background: #262626;
-  color:#fff;
-  margin:0;
+  color: #fff;
+  margin: 0;
+}
+
+.crypto-card {
+  background: #1a1a1a;
+  border-top: 3px solid #ff0057;
+  margin: 20px;
+  padding: 10px;
 }
 
 .row {
@@ -41,7 +48,7 @@ h2 {
   margin: 0 0 10px 0;
 }
 
-button {
+butto {
   float:right;
   background:#FF0057;
   border:none;

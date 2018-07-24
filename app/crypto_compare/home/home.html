@@ -7,8 +7,42 @@
     <link rel="stylesheet" type="text/css" media="screen" href="../../../assets/styles/main.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="../../../assets/styles/crypto.css" />
   </head>
-  <body>
-    <div class="main-title">CeeCrypto</div>
+  <body id="crypto-wrapper">
+    <div class="main-title">
+      <span>Cee</span><span>Crypto</span>
+      <p class="sub-title">monitor crypto prices in real time</p>
+    </div>
+
+    <div class="crypto-card">
+      <div class="header">
+        <div class="title">BTC <span>bitcoin</span></div>
+        <div class="icon">i</div>
+      </div>
+
+      <div class="prices">
+        <div class="main">NGN 2,123,456.12</div>
+        <div class="sub">USD 8,178.61</div>
+        <div class="sub">EUR 403.98</div>
+      </div>
+
+      <div class="updated-time">
+        <p>Updated 15s ago</p>
+      </div>
+
+      <div class="price-target">
+        <button>Set Price Target</button>
+        <p>Get notified when Ethereum hits the set price</p>
+      </div>
+
+      <div class="price-target">
+        <div class="set-target">
+          <p>Target price</p>
+          <p>NGN 2,321,123</p>
+        </div>
+        <button>Update Price Target</button>
+      </div>
+    </div>
+
     <div class="row">
       <div id="price-container">
           <p class="subtext">Current Bitcoin price</p>

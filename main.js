@@ -15,8 +15,8 @@ const configs = {
   frame: function (title, opts={}) {
     return {
       title: title,
-      height: opts.height || 513,
-      width: opts.width || 300,
+      height: opts.height || 667,
+      width: opts.width || 375,
       x: opts.x || 0,
       y: opts.y || 0,
       resizable: false,
@@ -42,7 +42,7 @@ app.on('ready', () => {
     {
       label: 'Crypto Compare',
       click() {
-        win = new BrowserWindow(configs.frame('Crypto Compare', {x: 400, width: 800}))
+        win = new BrowserWindow(configs.frame('Crypto Compare', {x: 475, width: 1000}))
         win.loadFile(configs.entryPath('/crypto_compare/home/home.html'))
         win.webContents.openDevTools()
         win.on('closed', () => win = null)

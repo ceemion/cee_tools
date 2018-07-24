@@ -1,9 +1,37 @@
 @import 'fonts.css';
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
 }
 
 .main-title {
+  background-color: #1a1a1a;
+  font-size: 2.1875rem;
+  letter-spacing: 1.94px;
+  padding-bottom: 16px;
+  padding-top: 16px;
+  text-align: center;
+}
+
+.main-title span:first-of-type {
+  color: #fff;
   font-family: 'Freshca';
+}
+
+.main-title span:nth-of-type(2) {
+  color: #ff0057;
+  font-family: 'Freshca';
+}
+
+.main-title .sub-title {
+  color: #828282;
+  font-size: .875rem;
+  font-style: italic;
+  letter-spacing: 1px;
+  margin: 5px auto;
+  text-align: center;
 }
