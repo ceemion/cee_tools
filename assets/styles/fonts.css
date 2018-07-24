@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i');
+
+@font-face {
+  font-family: 'Freshca';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/Freshca-Regular.otf') format('opentype');
+}

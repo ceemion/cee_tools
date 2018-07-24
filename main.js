@@ -26,7 +26,7 @@ const configs = {
 }
 
 app.on('ready', () => {
-  console.log('Cee Tools is ready.')
+  console.log('CeeTools is ready.')
 
   tray = new Tray(iconPath)
 
@@ -55,12 +55,12 @@ app.on('ready', () => {
     },
     {type: 'separator'},
     {
-      label: 'Quit Cee Tools',
+      label: 'Quit CeeTools',
       click() { app.quit() }
     }
   ])
 
-  tray.setToolTip('Cee Tools')
+  tray.setToolTip('CeeTools')
   tray.setContextMenu(contextMenu)
 })
 

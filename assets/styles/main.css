@@ -1,0 +1,9 @@
+@import 'fonts.css';
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.main-title {
+  font-family: 'Freshca';
+}
