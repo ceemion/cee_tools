@@ -13,7 +13,7 @@ const targetPrice = document.getElementById('target-price')
 const priceNotification = {
   title: 'BTC Alert',
   body: 'BTC just beat your target price!',
-  icon: path.join(__dirname, '../../../assets/images/bitcoin.png')
+  icon: path.join(__dirname, '../../../assets/images/bitcoin-shadow.png')
 }
 
 let targetPriceVal;

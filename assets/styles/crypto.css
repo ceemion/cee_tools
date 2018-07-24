@@ -11,6 +11,31 @@
   padding: 10px;
 }
 
+.crypto-card .header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.crypto-card .header .title {
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+}
+
+.crypto-card .header .title span {
+  color: #f68819;
+  font-size: .875rem;
+  font-style: italic;
+}
+
+.crypto-card .header .icon {
+  height: 35px;
+  width: 35px;
+}
+
+.crypto-card .header .icon img {
+  width: 100%;
+}
+
 .row {
   width:100%;
   /* margin-top:50px; */
