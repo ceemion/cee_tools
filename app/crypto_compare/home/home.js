@@ -4,22 +4,18 @@ const path = require('path')
 const axios = require('axios')
 
 const imgPath = path.join(__dirname, '../../../assets/images')
-
 const cryptoMainDiv = document.getElementById('crypto-main')
-const notifyBtn = document.getElementById('notify-btn')
-// const priceBtc = document.getElementById('price-btc')
-// const priceEth = document.getElementById('price-eth')
-// const priceBtcUsd = document.getElementById('price-btc-usd')
-// const priceEthUsd = document.getElementById('price-eth-usd')
-const targetPrice = document.getElementById('target-price')
+
+let targetPriceVal;
+
+cryptoMainDiv.innerHTML = `
+  <div class="status-text"><em>preparing your cryptos...</em></div>`
 
 const priceNotification = {
   title: 'BTC Alert',
   body: 'BTC just beat your target price!',
   icon: `${imgPath}/bitcoin-shadow.png`
 }
-
-let targetPriceVal;
 
 function buildCryptoCard(data={}) {
   return `
@@ -43,10 +39,23 @@ function buildCryptoCard(data={}) {
         <p>Updated ${new Date()}</p>
       </div>
 
-      <div class="price-target innit">
-        <button class="btn btn-primary">Set Price Target</button>
-        <p>Get notified when ${data.fullname} hits the set price</p>
-      </div>
+      ${
+        !!data.targetNgn ?
+        `<div id="${data.type}-price-target" class="price-target data">
+          <div>
+            <p class="helper-title">Target price</p>
+            <p class="price-set">NGN ${data.targetNgn}</p>
+          </div>
+          <div>
+            <button onclick="openNotifyModal()" class="btn btn-primary">Update Price Target</button>
+          </div>
+        </div>`
+        :
+        `<div id="${data.type}-price-target" class="price-target innit">
+          <button onclick="openNotifyModal()" class="btn btn-primary">Set Price Target</button>
+          <p>Get notified when ${data.fullname} hits the set price</p>
+        </div>`
+      }
     </div>
   `
 }
@@ -62,6 +71,8 @@ function getCryptos() {
 
       const btcNgn = res.data.BTC.NGN
       const btcUsd = res.data.BTC.USD
+      const btcEur = res.data.BTC.EUR
+
       const ethNgn = res.data.ETH.NGN
       const ethUsd = res.data.ETH.USD
 
@@ -70,9 +81,10 @@ function getCryptos() {
           type: 'btc',
           fullname: 'bitcoin',
           iconPath: `${imgPath}/bitcoin.png`,
-          ngn: formatPrice(res.data.BTC.NGN),
-          usd: formatPrice(res.data.BTC.USD),
-          eur: formatPrice(res.data.BTC.EUR)
+          targetNgn: targetPriceVal && formatPrice(targetPriceVal),
+          ngn: formatPrice(btcNgn),
+          usd: formatPrice(btcUsd),
+          eur: formatPrice(btcEur)
         },
         {
           type: 'eth',
@@ -96,42 +108,49 @@ function getCryptos() {
         output = output + buildCryptoCard(item)
       })
 
-      console.log('output: ', output)
-
       cryptoMainDiv.innerHTML = output
 
-      // priceBtc.innerHTML = `NGN ${btcNgn.toLocaleString('en')}`
-      // priceEth.innerHTML = `NGN ${ethNgn.toLocaleString('en')}`
-      // priceBtcUsd.innerHTML = `$ ${btcUsd.toLocaleString('en')}`
-      // priceEthUsd.innerHTML = `$ ${ethUsd.toLocaleString('en')}`
-
-      if (!!targetPrice.innerHTML && targetPriceVal === btcNgn) {
+      if (targetPriceVal >= btcNgn) {
         new window.Notification(priceNotification.title, priceNotification)
       }
+    })
+    .catch(error => {
+      cryptoMainDiv.innerHTML = `
+        <div class="status-text">${error}. Ensure you're connected to a network and reload!</div>
+      `
     })
 }
 
 getCryptos();
 setInterval ( getCryptos, 20000 ); // refresh prices every 20 seconds
 
-if (notifyBtn) {
-  notifyBtn.addEventListener('click', function (event) {
-    let win = new BrowserWindow({
-      width: 400,
-      height: 200,
-      frame: false,
-      resizable: false,
-      transparent: true,
-      alwaysOnTop: true
-    })
-
-    win.on('close', function () { win = null })
-    win.loadURL(`file://${path.join(__dirname, '../add/add.html')}`)
-    win.show()
+function openNotifyModal() {
+  let win = new BrowserWindow({
+    width: 400,
+    height: 200,
+    frame: false,
+    resizable: false,
+    transparent: true,
+    alwaysOnTop: true
   })
+
+  win.on('close', function () { win = null })
+  win.loadURL(`file://${path.join(__dirname, '../add/add.html')}`)
+  win.show()
 }
 
 ipcRenderer.on('targetPriceVal', function (event, arg) {
+  const btcPriceTarget = document.getElementById('btc-price-target')
+
   targetPriceVal = Number(arg)
-  targetPrice.innerHTML = `NGN ${targetPriceVal.toLocaleString('en')}`
+  btcPriceTarget.outerHTML = `
+  <div id="btc-price-target" class="price-target data">
+    <div>
+      <p class="helper-title">Target price</p>
+      <p class="price-set">NGN ${formatPrice(targetPriceVal)}</p>
+    </div>
+    <div>
+      <button onclick="openNotifyModal()" class="btn btn-primary">Update Price Target</button>
+    </div>
+  </div>`
 })

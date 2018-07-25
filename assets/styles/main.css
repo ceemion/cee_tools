@@ -66,3 +66,12 @@ body {
 .btn.btn-primary:focus {
   outline: 1px dotted #ff0057;
 }
+
+.status-text {
+  background: #353535;
+  color: #828282;
+  font-size: .875rem;
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+}
