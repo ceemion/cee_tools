@@ -44,8 +44,8 @@ function buildCryptoCard(data={}) {
       </div>
 
       <div class="price-target innit">
-        <button>Set Price Target</button>
-        <p>Get notified when Bitcoin hits the set price</p>
+        <button class="btn btn-primary">Set Price Target</button>
+        <p>Get notified when ${data.fullname} hits the set price</p>
       </div>
     </div>
   `
@@ -75,20 +75,20 @@ function getCryptos() {
           eur: formatPrice(res.data.BTC.EUR)
         },
         {
-          type: 'bch',
-          fullname: 'bitcoin cash',
-          iconPath: `${imgPath}/bitcoin-cash.png`,
-          ngn: formatPrice(res.data.BCH.NGN),
-          usd: formatPrice(res.data.BCH.USD),
-          eur: formatPrice(res.data.BCH.EUR)
-        },
-        {
           type: 'eth',
           fullname: 'ethereum',
           iconPath: `${imgPath}/ethereum.png`,
           ngn: formatPrice(res.data.ETH.NGN),
           usd: formatPrice(res.data.ETH.USD),
           eur: formatPrice(res.data.ETH.EUR)
+        },
+        {
+          type: 'bch',
+          fullname: 'bitcoin cash',
+          iconPath: `${imgPath}/bitcoin-cash.png`,
+          ngn: formatPrice(res.data.BCH.NGN),
+          usd: formatPrice(res.data.BCH.USD),
+          eur: formatPrice(res.data.BCH.EUR)
         }
       ]
 

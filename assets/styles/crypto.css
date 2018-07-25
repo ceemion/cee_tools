@@ -91,23 +91,6 @@
   padding: 10px;
 }
 
-.crypto-card .price-target button {
-  background:#ff0057;
-  border: none;
-  color: #fff;
-  cursor:pointer;
-  font-size: .875rem;
-  padding: 10px 20px;
-  text-transform: capitalize;
-  transition: all ease-in-out .25s;
-}
-
-.crypto-card .price-target button:hover {
-  background: #d2034a;
-  box-shadow: 0 0 5px rgba(0,0,0,.5);
-  transition: all ease-in-out .25s;
-}
-
 .crypto-card .price-target.innit {
   text-align: center;
 }

@@ -34,3 +34,35 @@ body {
   margin: 5px auto;
   text-align: center;
 }
+
+.btn {
+  border: none;
+  cursor:pointer;
+  font-size: .875rem;
+  padding: 10px 20px;
+  text-transform: capitalize;
+  transition: all ease-in-out .25s;
+}
+
+.btn:hover {
+  background-color: rgb(130, 130, 130);
+  box-shadow: 0 0 5px rgba(0,0,0,.5);
+  transition: all ease-in-out .25s;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn.btn-primary {
+  background-color:#ff0057;
+  color: #fff;
+}
+
+.btn.btn-primary:hover {
+  background-color: #d2034a;
+}
+
+.btn.btn-primary:focus {
+  outline: 1px dotted #ff0057;
+}
