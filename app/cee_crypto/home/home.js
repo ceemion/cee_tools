@@ -10,10 +10,22 @@ const coinsFullName = {
   bch: 'bitcoin cash'
 };
 
-const priceNotification = {
-  title: 'BTC Alert',
-  body: 'BTC just beat your target price!',
-  icon: `${imgPath}/bitcoin-shadow.png`
+const priceNotifications = {
+  btc: {
+    title: 'BTC Alert',
+    body: 'Bitcoin just beat your target price!',
+    icon: `${imgPath}/bitcoin-shadow.png`
+  },
+  eth: {
+    title: 'ETH Alert',
+    body: 'Ethereum just beat your target price!',
+    icon: `${imgPath}/ethereum.png`
+  },
+  bch: {
+    title: 'BCH Alert',
+    body: 'Bitcoin cash just beat your target price!',
+    icon: `${imgPath}/bitcoin-cash.png`
+  }
 };
 
 // Define needed global variables
@@ -130,8 +142,16 @@ function getCryptos() {
 
       cryptoMainDiv.innerHTML = output
 
-      if (targetPriceVal['btc'] >= btcNgn || targetPriceVal['eth'] >= ethNgn || targetPriceVal['bch'] >= bchNgn) {
-        new window.Notification(priceNotification.title, priceNotification)
+      if (targetPriceVal['btc'] >= btcNgn) {
+        new window.Notification(priceNotifications.btc.title, priceNotifications.btc)
+      }
+
+      if (targetPriceVal['eth'] >= ethNgn) {
+        new window.Notification(priceNotifications.eth.title, priceNotifications.eth)
+      }
+
+      if (targetPriceVal['bch'] >= bchNgn) {
+        new window.Notification(priceNotifications.bch.title, priceNotifications.bch)
       }
     })
     .catch(error => {
