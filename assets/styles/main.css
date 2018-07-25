@@ -75,3 +75,14 @@ body {
   padding: 10px;
   text-align: center;
 }
+
+footer {
+  margin: 20px auto;
+  text-align: center;
+}
+
+footer p {
+  color: #828282;
+  font-size: .875rem;
+  margin: 0;
+}
