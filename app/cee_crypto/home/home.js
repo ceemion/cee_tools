@@ -1,5 +1,6 @@
 const path = require('path');
 const axios = require('axios');
+const moment = require('moment');
 
 const imgPath = path.join(__dirname, '../../../assets/images');
 const cryptoMainDiv = document.getElementById('crypto-main');
@@ -88,7 +89,7 @@ function buildCryptoCard(data={}) {
       </div>
 
       <div class="updated-time">
-        <p>Updated ${new Date()}</p>
+        <p>Updated ${moment().calendar(null, {sameDay : '[today at] h:mm:ss a',})}</p>
       </div>
 
       ${ !!data.targetNgn ? snippets.priceTargetSet(data) : snippets.priceTargetInnit(data) }
@@ -134,13 +135,13 @@ function getCryptos() {
           usd: formatPrice(res.data.BCH.USD),
           eur: formatPrice(res.data.BCH.EUR)
         }
-      ]
+      ];
 
       formatRes.forEach(item => {
         output = output + buildCryptoCard(item)
       })
 
-      cryptoMainDiv.innerHTML = output
+      cryptoMainDiv.innerHTML = output;
 
       if (targetPriceVal['btc'] >= btcNgn) {
         new window.Notification(priceNotifications.btc.title, priceNotifications.btc)
