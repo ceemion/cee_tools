@@ -46,7 +46,13 @@ const snippets = {
     return `
       <div id="${data.type}-price-target" class="price-target data">
         <div>
-          <input id="notify-val" placeholder="Target price in NGN" value="${data.targetNgn ? data.targetNgn : ''}">
+          <input
+            id="notify-val"
+            class="cee-form-control"
+            type="number"
+            step="any"
+            placeholder="Target price in NGN"
+            value="${data.targetNgn ? data.targetNgn : ''}">
         </div>
         <div>
           <button onclick="setPrice('${data.type}')" class="btn btn-primary">Set</button>

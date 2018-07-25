@@ -15,8 +15,8 @@ const configs = {
   frame: function (title, opts={}) {
     return {
       title: title,
-      height: opts.height || 667,
-      width: opts.width || 375,
+      height: opts.height || 700,
+      width: opts.width || 430,
       x: opts.x || 0,
       y: opts.y || 0,
       resizable: false,
@@ -42,9 +42,9 @@ app.on('ready', () => {
     {
       label: 'CeeCrypto',
       click() {
-        win = new BrowserWindow(configs.frame('CeeCrypto', {x: 475, width: 1000}))
+        win = new BrowserWindow(configs.frame('CeeCrypto', {x: 475}))
         win.loadFile(configs.entryPath('/cee_crypto/home/home.html'))
-        win.webContents.openDevTools()
+        // win.webContents.openDevTools()
         win.on('closed', () => win = null)
       }
     },
@@ -70,16 +70,4 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
   }
-})
-
-app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (win === null) {
-    createWindow()
-  }
-})
-
-ipcMain.on('update-crypto-notify-value', function (event, arg) {
-  win.webContents.send('targetPriceVal', arg)
 })
