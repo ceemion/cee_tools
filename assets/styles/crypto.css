@@ -4,13 +4,16 @@
   margin: 0;
 }
 
+/* --- Crypto Card --- */
 .crypto-card {
   background: #1a1a1a;
   border-top: 3px solid #ff0057;
+  box-shadow: 0 2px 10px rgba(0,0,0,.5);
   margin: 20px;
   padding: 10px;
 }
 
+/* --- Crypto Header --- */
 .crypto-card .header {
   display: flex;
   justify-content: space-between;
@@ -22,9 +25,20 @@
 }
 
 .crypto-card .header .title span {
-  color: #f68819;
   font-size: .875rem;
   font-style: italic;
+}
+
+.crypto-card .header .title span.btc {
+  color: #f68819;
+}
+
+.crypto-card .header .title span.bch {
+  color: #1ec622;
+}
+
+.crypto-card .header .title span.eth {
+  color: #4e8daf;
 }
 
 .crypto-card .header .icon {
@@ -35,6 +49,94 @@
 .crypto-card .header .icon img {
   width: 100%;
 }
+
+/* --- Crypto Prices --- */
+.crypto-card .prices {
+  margin-left: 15px;
+}
+
+.crypto-card .prices > * {
+  margin: 10px auto;
+}
+
+.crypto-card .prices .main {
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+}
+
+.crypto-card .prices .sub {
+  color: #bdbdbd;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+/* --- Crypto Updated Time --- */
+.crypto-card .updated-time {
+  border-top: 1px solid #333333;
+  margin: 20px -10px;
+  padding-left: 10px;
+}
+
+.crypto-card .updated-time p {
+  color: #939393;
+  font-size: .75rem;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+/* --- Price Target --- */
+.crypto-card .price-target {
+  background: #353535;
+  margin: 0 -10px -10px;
+  padding: 10px;
+}
+
+.crypto-card .price-target button {
+  background:#ff0057;
+  border: none;
+  color: #fff;
+  cursor:pointer;
+  font-size: .875rem;
+  padding: 10px 20px;
+  text-transform: capitalize;
+  transition: all ease-in-out .25s;
+}
+
+.crypto-card .price-target button:hover {
+  background: #d2034a;
+  box-shadow: 0 0 5px rgba(0,0,0,.5);
+  transition: all ease-in-out .25s;
+}
+
+.crypto-card .price-target.innit {
+  text-align: center;
+}
+
+.crypto-card .price-target.innit p {
+  color: #828282;
+  font-size: .625rem;
+  margin: 10px auto 0;
+}
+
+.crypto-card .price-target.data {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.crypto-card .price-target.data .helper-title {
+  color: #828282;
+  font-size: .625rem;
+  margin: 0;
+}
+
+.crypto-card .price-target.data .price-set {
+  color: #e0e0e0;
+  font-size: .875rem;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
 
 .row {
   width:100%;

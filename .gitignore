@@ -11,3 +11,6 @@
 npm-debug.log*
 yarn-error.log
 testem.log
+
+# system
+.DS_Store

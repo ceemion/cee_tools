@@ -13,9 +13,11 @@
       <p class="sub-title">monitor crypto prices in real time</p>
     </div>
 
+    <div id="crypto-main"></div>
+
     <div class="crypto-card">
       <div class="header">
-        <div class="title">BTC <span>bitcoin</span></div>
+        <div class="title">BTC <span class="btc">bitcoin</span></div>
         <div class="icon">
           <img src="../../../assets/images/bitcoin.png" alt="i" />
         </div>
@@ -31,17 +33,9 @@
         <p>Updated 15s ago</p>
       </div>
 
-      <div class="price-target">
+      <div class="price-target innit">
         <button>Set Price Target</button>
-        <p>Get notified when Ethereum hits the set price</p>
-      </div>
-
-      <div class="price-target">
-        <div class="set-target">
-          <p>Target price</p>
-          <p>NGN 2,321,123</p>
-        </div>
-        <button>Update Price Target</button>
+        <p>Get notified when Bitcoin hits the set price</p>
       </div>
     </div>
 
@@ -64,6 +58,14 @@
           <button id="notify-btn">Notify me when..</button>
       </div>
     </div>
+
+    <div class="price-target data">
+        <div>
+          <p class="helper-title">Target price</p>
+          <p class="price-set">NGN 2,321,123</p>
+        </div>
+        <div><button>Update Price Target</button></div>
+      </div>
 
     <script src="home.js"></script>
   </body>
