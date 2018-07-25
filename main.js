@@ -40,10 +40,10 @@ app.on('ready', () => {
       }
     },
     {
-      label: 'Crypto Compare',
+      label: 'CeeCrypto',
       click() {
-        win = new BrowserWindow(configs.frame('Crypto Compare', {x: 475, width: 1000}))
-        win.loadFile(configs.entryPath('/crypto_compare/home/home.html'))
+        win = new BrowserWindow(configs.frame('CeeCrypto', {x: 475, width: 1000}))
+        win.loadFile(configs.entryPath('/cee_crypto/home/home.html'))
         win.webContents.openDevTools()
         win.on('closed', () => win = null)
       }
