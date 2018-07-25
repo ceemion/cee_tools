@@ -17,7 +17,7 @@ const priceNotification = {
 };
 
 // Define needed global variables
-let targetPriceVal;
+let targetPriceVal = {};
 
 // Build needed dynamic HTML snippets
 const snippets = {
@@ -29,15 +29,15 @@ const snippets = {
       </div>
     `
   },
-  priceTargetInput: function(type) {
+  priceTargetInput: function(data) {
     return `
-      <div id="btc-price-target" class="price-target data">
+      <div id="${data.type}-price-target" class="price-target data">
         <div>
-          <input id="notify-val" placeholder="Target price in NGN">
+          <input id="notify-val" placeholder="Target price in NGN" value="${data.targetNgn ? data.targetNgn : ''}">
         </div>
         <div>
-          <button onclick="setPrice('${type}')" class="btn btn-primary">Set</button>
-          <button onclick="cancelSetPrice('${type}')" class="btn">Cancel</button>
+          <button onclick="setPrice('${data.type}')" class="btn btn-primary">Set</button>
+          <button onclick="cancelSetPrice('${data.type}')" class="btn">Cancel</button>
         </div>
       </div>
     `
@@ -47,7 +47,7 @@ const snippets = {
       <div id="${data.type}-price-target" class="price-target data">
         <div>
           <p class="helper-title">Target price</p>
-          <p class="price-set">NGN ${data.targetNgn}</p>
+          <p class="price-set">NGN ${formatPrice(data.targetNgn)}</p>
         </div>
         <div>
           <button onclick="initSetPrice('${data.type}')" class="btn btn-primary">Update Price Target</button>
@@ -94,32 +94,31 @@ function getCryptos() {
       let output = ''
 
       const btcNgn = res.data.BTC.NGN
-      const btcUsd = res.data.BTC.USD
-      const btcEur = res.data.BTC.EUR
-
       const ethNgn = res.data.ETH.NGN
-      const ethUsd = res.data.ETH.USD
+      const bchNgn = res.data.BCH.NGN
 
       const formatRes = [
         {
           type: 'btc',
           iconPath: `${imgPath}/bitcoin.png`,
-          targetNgn: targetPriceVal && formatPrice(targetPriceVal),
+          targetNgn: targetPriceVal['btc'] && formatPrice(targetPriceVal['btc']),
           ngn: formatPrice(btcNgn),
-          usd: formatPrice(btcUsd),
-          eur: formatPrice(btcEur)
+          usd: formatPrice(res.data.BTC.USD),
+          eur: formatPrice(res.data.BTC.EUR)
         },
         {
           type: 'eth',
           iconPath: `${imgPath}/ethereum.png`,
-          ngn: formatPrice(res.data.ETH.NGN),
+          targetNgn: targetPriceVal['eth'] && formatPrice(targetPriceVal['eth']),
+          ngn: formatPrice(ethNgn),
           usd: formatPrice(res.data.ETH.USD),
           eur: formatPrice(res.data.ETH.EUR)
         },
         {
           type: 'bch',
           iconPath: `${imgPath}/bitcoin-cash.png`,
-          ngn: formatPrice(res.data.BCH.NGN),
+          targetNgn: targetPriceVal['bch'] && formatPrice(targetPriceVal['bch']),
+          ngn: formatPrice(bchNgn),
           usd: formatPrice(res.data.BCH.USD),
           eur: formatPrice(res.data.BCH.EUR)
         }
@@ -131,7 +130,7 @@ function getCryptos() {
 
       cryptoMainDiv.innerHTML = output
 
-      if (targetPriceVal >= btcNgn) {
+      if (targetPriceVal['btc'] >= btcNgn || targetPriceVal['eth'] >= ethNgn || targetPriceVal['bch'] >= bchNgn) {
         new window.Notification(priceNotification.title, priceNotification)
       }
     })
@@ -144,27 +143,27 @@ function getCryptos() {
 
 function initSetPrice(type) {
   if (type) {
-    const btcPriceTarget = document.getElementById(`${type}-price-target`);
-    btcPriceTarget.outerHTML = snippets.priceTargetInput(type);
+    const priceTarget = document.getElementById(`${type}-price-target`);
+    priceTarget.outerHTML = snippets.priceTargetInput({type: type, targetNgn: targetPriceVal[type]});
   }
 };
 
 function setPrice(type) {
-  const btcPriceTarget = document.getElementById('btc-price-target');
+  const priceTarget = document.getElementById(`${type}-price-target`);
 
-  targetPriceVal = Number(document.getElementById('notify-val').value);
-  btcPriceTarget.outerHTML = snippets.priceTargetSet({type: type, targetNgn: targetPriceVal});
+  targetPriceVal[type] = parseFloat(document.getElementById('notify-val').value);
+  priceTarget.outerHTML = snippets.priceTargetSet({type: type, targetNgn: targetPriceVal[type]});
 };
 
 function cancelSetPrice(type) {
-  const btcPriceTarget = document.getElementById(`${type}-price-target`);
+  const priceTarget = document.getElementById(`${type}-price-target`);
 
-  if (!!targetPriceVal) {
-    btcPriceTarget.outerHTML = snippets.priceTargetSet({type: type, targetNgn: targetPriceVal});
+  if (!!targetPriceVal[type]) {
+    priceTarget.outerHTML = snippets.priceTargetSet({type: type, targetNgn: targetPriceVal[type]});
     return;
   }
 
-  btcPriceTarget.outerHTML= snippets.priceTargetInnit({type: type})
+  priceTarget.outerHTML= snippets.priceTargetInnit({type})
 }
 
 setInterval ( getCryptos, 20000 ); // refresh prices every 20 seconds
