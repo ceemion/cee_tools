@@ -149,15 +149,15 @@ function getCryptos() {
 
       cryptoMainDiv.innerHTML = output;
 
-      if (targetPriceVal['btc'] >= btcNgn) {
+      if (targetPriceVal['btc'] === btcNgn) {
         new window.Notification(priceNotifications.btc.title, priceNotifications.btc)
       }
 
-      if (targetPriceVal['eth'] >= ethNgn) {
+      if (targetPriceVal['eth'] === ethNgn) {
         new window.Notification(priceNotifications.eth.title, priceNotifications.eth)
       }
 
-      if (targetPriceVal['bch'] >= bchNgn) {
+      if (targetPriceVal['bch'] === bchNgn) {
         new window.Notification(priceNotifications.bch.title, priceNotifications.bch)
       }
     })
