@@ -169,7 +169,7 @@ function getCryptos() {
 };
 
 function comparePrices(target, actual) {
-  return target >= actual
+  return actual >= target
 }
 
 function initSetPrice(type) {
