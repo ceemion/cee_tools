@@ -1,7 +1,7 @@
 @import 'fonts.css';
 
 html {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 body {
@@ -83,16 +83,17 @@ body {
 
 /* --- Button --- */
 .btn {
-  border: none;
-  cursor:pointer;
-  font-size: .875rem;
-  padding: 10px 20px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: .75rem;
+  padding: 8px 10px;
   text-transform: capitalize;
   transition: all ease-in-out .25s;
 }
 
 .btn:hover {
   background-color: rgb(130, 130, 130);
+  border-color: rgb(130, 130, 130);
   box-shadow: 0 0 5px rgba(0,0,0,.5);
   transition: all ease-in-out .25s;
 }
@@ -103,11 +104,13 @@ body {
 
 .btn.btn-primary {
   background-color:#ff0057;
+  border-color: #ff0057;
   color: #fff;
 }
 
 .btn.btn-primary:hover {
   background-color: #d2034a;
+  border-color: #d2034a;
 }
 
 .btn.btn-primary:focus {
