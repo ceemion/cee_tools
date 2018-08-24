@@ -5,7 +5,7 @@ const iconPath = path.join(__dirname, '/assets/images/IconTemplate.png')
 
 // electronReload(__dirname)
 
-console.log('ENV: ', process.env.mode)
+// console.log('ENV: ', process.env.mode)
 
 let tray = null
 let win = null
@@ -17,8 +17,8 @@ const configs = {
   frame: function (title, opts={}) {
     return {
       title: title,
-      height: opts.height || 700,
-      width: opts.width || 430,
+      height: opts.height || 620,
+      width: opts.width || 344,
       x: opts.x || 0,
       y: opts.y || 0,
       resizable: false,
@@ -44,7 +44,7 @@ app.on('ready', () => {
     {
       label: 'CeeCrypto',
       click() {
-        win = new BrowserWindow(configs.frame('CeeCrypto', {x: 475}))
+        win = new BrowserWindow(configs.frame('CeeCrypto', {x: 400}))
         win.loadFile(configs.entryPath('/cee_crypto/home/home.html'))
         // win.webContents.openDevTools()
         win.on('closed', () => win = null)
