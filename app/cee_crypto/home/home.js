@@ -149,15 +149,15 @@ function getCryptos() {
 
       cryptoMainDiv.innerHTML = output;
 
-      if (targetPriceVal['btc'] === btcNgn) {
+      if (comparePrices(targetPriceVal['btc'], btcNgn)) {
         new window.Notification(priceNotifications.btc.title, priceNotifications.btc)
       }
 
-      if (targetPriceVal['eth'] === ethNgn) {
+      if (comparePrices(targetPriceVal['eth'], ethNgn)) {
         new window.Notification(priceNotifications.eth.title, priceNotifications.eth)
       }
 
-      if (targetPriceVal['bch'] === bchNgn) {
+      if (comparePrices(targetPriceVal['bch'], bchNgn)) {
         new window.Notification(priceNotifications.bch.title, priceNotifications.bch)
       }
     })
@@ -167,6 +167,10 @@ function getCryptos() {
       `
     })
 };
+
+function comparePrices(target, actual) {
+  return target >= actual
+}
 
 function initSetPrice(type) {
   if (type) {
