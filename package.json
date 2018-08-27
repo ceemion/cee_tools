@@ -6,10 +6,10 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron .",
-    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/CeeTools.icns --prune=true --out=release-builds",
-    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"CeeTools\"",
-    "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds"
+    "start": "NODE_ENV=development electron .",
+    "package-mac": "NODE_ENV=production electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/CeeTools.icns --prune=true --out=release-builds",
+    "package-win": "NODE_ENV=production electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"CeeTools\"",
+    "package-linux": "NODE_ENV=production electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds"
   },
   "repository": {
     "type": "git",
@@ -36,5 +36,9 @@
   "dependencies": {
     "axios": "^0.18.0",
     "moment": "^2.22.2"
+  },
+  "devEngines": {
+    "node": "8.9.4",
+    "npm": "5.6.0"
   }
 }

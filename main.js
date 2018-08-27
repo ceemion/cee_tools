@@ -1,11 +1,11 @@
 const {app, Menu, Tray, shell, BrowserWindow, ipcMain} = require('electron')
-// const electronReload = require('electron-reload')
 const path = require('path')
 const iconPath = path.join(__dirname, '/assets/images/IconTemplate.png')
 
-// electronReload(__dirname)
-
-// console.log('ENV: ', process.env.mode)
+if (process.env.NODE_ENV === 'development') {
+  const electronReload = require('electron-reload')
+  electronReload(__dirname)
+}
 
 let tray = null
 let win = null
