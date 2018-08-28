@@ -34,10 +34,11 @@ app.on('ready', () => {
 
   const contextMenu = Menu.buildFromTemplate([
     {
-      label: 'Time Travel',
+      label: 'TimeTravel',
       click() {
-        win = new BrowserWindow(configs.frame('Time Travel'))
+        win = new BrowserWindow(configs.frame('TimeTravel'))
         win.loadFile(configs.entryPath('/time_travel/home/home.html'))
+        win.webContents.openDevTools()
         win.on('closed', () => win = null)
       }
     },

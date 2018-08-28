@@ -2,11 +2,43 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Time Travel</title>
+    <title>TimeTravel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../../assets/styles/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../../../assets/styles/timetravel.css" />
   </head>
-  <body>
-    <h1>Time Travel</h1>
-    <p>coming soon...</p>
+  <body id="timetravel-wrapper">
+    <div class="main-title">
+      <span>Time</span><span>Travel</span>
+      <p class="sub-title"></p>
+    </div>
+
+    <div class="tt-card">
+      <div class="time-input">
+        <div>
+          <input type="text" id="time" class="cee-time-input" name="time" placeholder="00 : 00" />
+        </div>
+        <div>
+          <select id="ampm" class="select-am-pm">
+            <option value="">--</option>
+            <option value="am">AM</option>
+            <option value="pm">PM</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="time-zone">
+          <div>
+            <select id="time-zone" class="select-time-zone">
+              <option value="">Choose timezone</option>
+              <option value="am">(GMT-07:00) Pacific Time</option>
+            </select>
+          </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2018 Kompilab</p>
+    </footer>
   </body>
 </html>
