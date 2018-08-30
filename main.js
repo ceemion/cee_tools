@@ -21,7 +21,7 @@ const configs = {
       width: opts.width || 344,
       x: opts.x || 0,
       y: opts.y || 0,
-      resizable: false,
+      resizable: true,
       backgroundColor: opts.bgColor || '#fff'
     }
   }

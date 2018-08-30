@@ -12,15 +12,6 @@
   padding: 10px;
 }
 
-.time-input {
-  display: flex;
-  justify-content: space-between;
-}
-
-.time-input div {
-  /* border: 1px solid red; */
-}
-
 /* --- Time Input Controls --- */
 .cee-time-input {
   display: block;

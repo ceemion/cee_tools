@@ -8,37 +8,41 @@
     <link rel="stylesheet" type="text/css" media="screen" href="../../../assets/styles/timetravel.css" />
   </head>
   <body id="timetravel-wrapper">
-    <div class="main-title">
+    <header class="main-title">
       <span>Time</span><span>Travel</span>
       <p class="sub-title"></p>
-    </div>
+    </header>
 
     <div class="tt-card">
       <div class="time-input">
+        <!-- <div class="time-opts">
+          <input type="text" pattern="\d*" title="must be number" id="time-hr" class="cee-time-input" name="hour" placeholder="00" maxlength="2" />
+          <span>:</span>
+          <input type="text" pattern="\d*" id="time-mins" class="cee-time-input" name="mins" placeholder="00" maxlength="2" />
+        </div> -->
         <div>
-          <input type="text" id="time" class="cee-time-input" name="time" placeholder="00 : 00" />
+          <input type="time" id="time" class="cee-time-input" name="time" />
         </div>
-        <div>
+        <!-- <div>
           <select id="ampm" class="select-am-pm">
             <option value="">--</option>
             <option value="am">AM</option>
             <option value="pm">PM</option>
           </select>
-        </div>
+        </div> -->
       </div>
 
-      <div class="time-zone">
-          <div>
-            <select id="time-zone" class="select-time-zone">
-              <option value="">Choose timezone</option>
-              <option value="am">(GMT-07:00) Pacific Time</option>
-            </select>
-          </div>
+      <div id="timezones" class="time-zone"></div>
+
+      <div>
+        <button onclick="test()">Run</button>
       </div>
     </div>
 
     <footer>
       <p>&copy; 2018 Kompilab</p>
     </footer>
+
+    <script src="home.js"></script>
   </body>
 </html>
