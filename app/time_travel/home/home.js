@@ -28,23 +28,35 @@ const utils = {
   }
 }
 
-// const timeHour = utils.byId('time-hr');
-// const timeMins = utils.byId('time-mins');
-// const amPm = utils.byId('ampm');
-// const timezone = utils.byId('timezone');
-const time = utils.byId('time');
+run = () => {
+  const time = utils.byId('time');
+  const timezone = utils.byId('timezone');
 
-// console.log(utils.timezoneNames)
+  // throw error if no time entered
+  if (!time.value) {
+    console.log('enter time');
+    return;
+  }
 
-// moment(time.valueAsDate).utc().format()
+  const hour = time.value.split(':')[0];
+  const mins = time.value.split(':')[1];
 
 
-test = () => {
-const timezone = utils.byId('timezone');
+  console.log('time: ', time.value);
 
-  console.log('timeHour - ', typeof(time.value))
-  console.log('timeHour Value -', time.value)
-  console.log('Time Zone - ', timezone.value)
+
+  // get timezone
+  const timezoneVal = timezone.value;
+
+  // get time in utc
+  const timeInZone = moment.tz({hour: hour, minute: mins}, timezoneVal);
+
+
+  // convert time to user's timezone
+  const timeConverted = moment.tz(timeInZone, utils.currentTimezone);
+  console.log('timeConverted: ', timeConverted.format())
+
+  // output result to new page
 }
 
 (function init() {
