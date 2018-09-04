@@ -25,38 +25,93 @@ const utils = {
     `;
 
     utils.byId('timezones').innerHTML = timezonesSelect;
+  },
+  inputChecks: (time, zone) => {
+    if (!time || !zone) {
+      let output = '';
+
+      switch (true) {
+        case !time && !zone:
+          output = 'Please enter time and select a timezone';
+          break;
+        case !time:
+          output = 'Please enter time';
+          break;
+        case !zone:
+          output = 'Please select a timezone';
+          break;
+        default:
+          break;
+      }
+
+      return output
+    }
+  },
+  resultTemplate: (data) => {
+    return `
+      <div class="tt-card">
+        <div>
+          <button onclick="closeResult()">close</button>
+        </div>
+        <p>Time where you are now is</p>
+        <h2>${data.time}</h2>
+        <p>${data.date}</p>
+        <p>${data.zone}</p>
+      </div>
+    `
   }
 }
 
 run = () => {
-  const time = utils.byId('time');
-  const timezone = utils.byId('timezone');
+  const errorDiv = utils.byId('input-error'),
+        time = utils.byId('time'),
+        timezone = utils.byId('timezone'),
+        resultDiv = utils.byId('result');
 
-  // throw error if no time entered
-  if (!time.value) {
-    console.log('enter time');
+  let hour, mins, timezoneVal, timeInZone, timeConverted, errorText;
+
+  // throw error if no time or zone entered
+  errorText = utils.inputChecks(time.value, timezone.value);
+  if (!!errorText) {
+    errorDiv.innerHTML = errorText;
     return;
   }
 
-  const hour = time.value.split(':')[0];
-  const mins = time.value.split(':')[1];
+  // clear error div
+  errorDiv.innerHTML = '';
 
-
-  console.log('time: ', time.value);
-
+  hour = time.value.split(':')[0];
+  mins = time.value.split(':')[1];
 
   // get timezone
-  const timezoneVal = timezone.value;
+  timezoneVal = timezone.value;
 
   // get time in utc
-  const timeInZone = moment.tz({hour: hour, minute: mins}, timezoneVal);
+  timeInZone = moment.tz({hour: hour, minute: mins}, timezoneVal);
 
 
   // convert time to user's timezone
-  const timeConverted = moment.tz(timeInZone, utils.currentTimezone);
-  console.log('timeConverted: ', timeConverted.format())
+  timeConverted = moment.tz(timeInZone, utils.currentTimezone);
+
+  const resultData = {
+    time: timeConverted.format('LT'),
+    date: timeConverted.format('ll'),
+    zone: timeConverted.tz()
+  };
 
   // output result to new page
+  resultDiv.innerHTML = utils.resultTemplate(resultData);
+}
+
+closeResult = () => {
+  utils.byId('result').innerHTML = '';
+}
+
+reset = () => {
+  const errorDiv = utils.byId('input-error').innerHTML = '',
+        time = utils.byId('time').value = '',
+        timezone = utils.byId('timezone').value = '';
+  return;
 }
 
 (function init() {
