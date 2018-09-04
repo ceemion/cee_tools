@@ -21,7 +21,7 @@ const configs = {
       width: opts.width || 344,
       x: opts.x || 0,
       y: opts.y || 0,
-      resizable: true,
+      resizable: false,
       backgroundColor: opts.bgColor || '#fff'
     }
   }
@@ -38,7 +38,7 @@ app.on('ready', () => {
       click() {
         win = new BrowserWindow(configs.frame('TimeTravel'))
         win.loadFile(configs.entryPath('/time_travel/home/home.html'))
-        win.webContents.openDevTools()
+        // win.webContents.openDevTools()
         win.on('closed', () => win = null)
       }
     },
