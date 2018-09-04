@@ -95,6 +95,12 @@ body {
   transition: all ease-in-out .25s;
 }
 
+.btn.btn-100 {
+  font-size: 1rem;
+  margin: .5rem auto;
+  width: 100%;
+}
+
 .btn:hover {
   background-color: rgb(130, 130, 130);
   border-color: rgb(130, 130, 130);
