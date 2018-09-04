@@ -14,30 +14,18 @@
     </header>
 
     <div class="tt-card">
+      <div id="input-error"></div>
       <div class="time-input">
-        <!-- <div class="time-opts">
-          <input type="text" pattern="\d*" title="must be number" id="time-hr" class="cee-time-input" name="hour" placeholder="00" maxlength="2" />
-          <span>:</span>
-          <input type="text" pattern="\d*" id="time-mins" class="cee-time-input" name="mins" placeholder="00" maxlength="2" />
-        </div> -->
-        <div>
-          <input type="time" id="time" class="cee-time-input" name="time" />
-        </div>
-        <!-- <div>
-          <select id="ampm" class="select-am-pm">
-            <option value="">--</option>
-            <option value="am">AM</option>
-            <option value="pm">PM</option>
-          </select>
-        </div> -->
+        <input type="time" id="time" class="cee-time-input" name="time" />
       </div>
-
       <div id="timezones" class="time-zone"></div>
-
       <div>
         <button onclick="run()">Run</button>
+        <button onclick="reset()">Reset</button>
       </div>
     </div>
+
+    <div id="result"></div>
 
     <footer>
       <p>&copy; 2018 Kompilab</p>
