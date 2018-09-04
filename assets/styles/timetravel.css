@@ -23,18 +23,22 @@
   background-clip: padding-box;
   border: 1px solid #2f2f2f;
   border-radius: 0;
+  margin-bottom: 1rem;
   text-align: center;
   width: 100%;
   transition: all 0.15s ease-in-out;
 }
+
 .cee-time-input:hover {
   border-color: #5a5a5a;
 }
+
 .cee-time-input:focus {
   border-color: #5a5a5a;
   outline: 0;
   box-shadow: none;
 }
+
 .cee-time-input::placeholder {
  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #bbb;
@@ -42,18 +46,22 @@
   opacity: 1;
  /* Firefox */
 }
+
 .cee-time-input:-ms-input-placeholder {
  /* Internet Explorer 10-11 */
   color: #bbb;
 }
+
 .cee-time-input::-ms-input-placeholder {
  /* Microsoft Edge */
   color: #bbb;
 }
+
 .cee-time-input:disabled {
   background-color: #e9ecef;
   cursor: not-allowed;
 }
+
 .cee-time-input:disabled:hover {
   border-color: #ced4da;
 }

@@ -16,7 +16,7 @@ const utils = {
   },
   populateTimezones: () => {
     const timezonesSelect = `
-      <div>
+      <div class="cee-time-input">
         <select id="timezone" class="select-time-zone">
           <option value="">Choose timezone</option>
           ${utils.buildOptions()}
@@ -44,7 +44,7 @@ const utils = {
           break;
       }
 
-      return output
+      return `<div class="status-text" style="color:#f16f6f;">${output}</div>`;
     }
   },
   resultTemplate: (data) => {
