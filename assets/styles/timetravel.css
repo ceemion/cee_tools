@@ -79,3 +79,21 @@
   -webkit-appearance: none;
   -webkit-border-radius: 0px;
 }
+
+/* --- Result --- */
+.close-result {
+  text-align: right;
+}
+
+.close-result a {
+  color: #828282;
+  cursor: pointer;
+  font-size: .857rem;
+  letter-spacing: 3.43px;
+  transition: all 0.15s ease-in-out;
+}
+
+.close-result a:hover {
+  color: #efefef;
+  transition: all 0.15s ease-in-out;
+}

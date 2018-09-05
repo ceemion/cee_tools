@@ -48,12 +48,13 @@ const utils = {
   resultTemplate: (data) => {
     return `
       <div class="tt-card">
-        <div>
-          <button onclick="closeResult()">close</button>
+        <div class="close-result">
+          <a onclick="closeResult()">CLOSE</a>
         </div>
         <p>Time where you are now is</p>
         <h2>${data.time}</h2>
         <p>${data.date}</p>
+        <p><em>${data.calendar}</em></p>
         <p>${data.zone}</p>
       </div>
     `
@@ -93,7 +94,8 @@ run = () => {
 
   const resultData = {
     time: timeConverted.format('LT'),
-    date: timeConverted.format('ll'),
+    date: timeConverted.format('LL'),
+    calendar: timeConverted.calendar(),
     zone: timeConverted.tz()
   };
 
