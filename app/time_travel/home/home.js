@@ -42,7 +42,7 @@ const utils = {
           break;
       }
 
-      return `<div class="status-text" style="color:#f16f6f;">${output}</div>`;
+      return `<div class="status-text" style="color:#f16f6f;margin:20px 0px;">${output}</div>`;
     }
   },
   resultTemplate: (data) => {
