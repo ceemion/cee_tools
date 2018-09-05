@@ -16,12 +16,10 @@ const utils = {
   },
   populateTimezones: () => {
     const timezonesSelect = `
-      <div class="cee-time-input">
-        <select id="timezone" class="select-time-zone">
-          <option value="">Choose timezone</option>
-          ${utils.buildOptions()}
-        </select>
-      </div>
+      <select id="timezone" class="cee-time-input cee-zone-select">
+        <option value="">Choose timezone</option>
+        ${utils.buildOptions()}
+      </select>
     `;
 
     utils.byId('timezones').innerHTML = timezonesSelect;

@@ -48,6 +48,7 @@ body {
   display: block;
   padding: 0.375rem 0.75rem;
   font-size: 0.875rem;
+  font-family: 'Open Sans', sans-serif;
   line-height: 1.5;
   color: #4a4a4a;
   background-color: #fff;
@@ -94,14 +95,16 @@ body {
   border: 1px solid transparent;
   cursor: pointer;
   font-size: .75rem;
+  font-family: 'Open Sans', sans-serif;
   padding: 8px 10px;
   text-transform: capitalize;
   transition: all ease-in-out .25s;
 }
 
-.btn.btn-100 {
-  font-size: 1rem;
+.btn.btn-lg {
+  font-size: 1.786rem;
   margin: .5rem auto;
+  padding: 12px 10px;
   width: 100%;
 }
 
