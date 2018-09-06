@@ -15,7 +15,7 @@
 /* --- Time Input Controls --- */
 .cee-time-input {
   display: block;
-  padding: 0.375rem 0;
+  padding: 0.05rem 0;
   font-size: 2.1875rem;
   line-height: 1.5;
   color: #f2f2f2;
@@ -72,8 +72,8 @@
   background-repeat: no-repeat;
   border-radius: 0px;
   font-family: 'Open Sans', sans-serif;
-  font-size: 1.25rem;
-  height: 60px;
+  font-size: 1rem;
+  height: 50px;
   line-height: 1.5;
   padding: .5rem 1rem;
   -webkit-appearance: none;
@@ -81,6 +81,10 @@
 }
 
 /* --- Result --- */
+.result {
+  text-align: center;
+}
+
 .close-result {
   text-align: right;
 }
@@ -96,4 +100,30 @@
 .close-result a:hover {
   color: #efefef;
   transition: all 0.15s ease-in-out;
+}
+
+.intro-line {
+  color: #ff0057;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.result .time {
+  font-size: 2.857rem;
+  letter-spacing: 2.22px;
+}
+
+.result .date,
+.result .calendar,
+.result .zone {
+  color: #828282;
+}
+
+.result .date,
+.result .zone {
+  font-size: 1.143rem;
+}
+
+.result .calendar {
+  font-size: .857rem;
 }

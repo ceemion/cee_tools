@@ -47,15 +47,15 @@ const utils = {
   },
   resultTemplate: (data) => {
     return `
-      <div class="tt-card">
+      <div class="tt-card result">
         <div class="close-result">
           <a onclick="closeResult()">CLOSE</a>
         </div>
-        <p>Time where you are now is</p>
-        <h2>${data.time}</h2>
-        <p>${data.date}</p>
-        <p><em>${data.calendar}</em></p>
-        <p>${data.zone}</p>
+        <p class="intro-line">Time where you are now is</p>
+        <h1 class="time">${data.time}</h1>
+        <p class="date">${data.date}</p>
+        <p class="calendar"><em>${data.calendar}</em></p>
+        <p class="zone">${data.zone}</p>
       </div>
     `
   }
